@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>IM SOLUSI REPORTING SYS</title>
+    <title>IM SOLUSI PPDB SYS</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -47,9 +47,9 @@
             <!-- Logo -->
             <a href="./" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>REPORT SYS</b></span>
+                <span class="logo-mini"><b>PPDB SYS</b></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>REPORT SYS</b></span>
+                <span class="logo-lg"><b>PPDB SYS</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -140,8 +140,8 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
                     <li><a href="./"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li><a href="./?page=plan"><i class="fa fa-link"></i> Plan</a></li>
-                    <li><a href="./?page=terselesaikan"><i class="fa fa-link"></i> Terelesaikan</a></li>
+                    <li><a href="./?page=isi-formulir"><i class="fa fa-link"></i> Isi Formulir</a></li>
+                    <!-- <li><a href="./?page=terselesaikan"><i class="fa fa-link"></i> Terelesaikan</a></li>
                     <li><a href="./?page=profile"><i class="fa fa-link"></i> Profile</a></li>
                     <li class="treeview">
                         <a href="#">
@@ -155,7 +155,7 @@
                             <li><a href="./"><i class="fa fa-circle-o"></i> Belum Selesai</a></li>
                             <li><a href="./"><i class="fa fa-circle-o"></i> Tidak Selesai</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li><a href="./?logout=yes"><i class="fa fa-power-off"></i> Logout</a></li>
 
                 </ul>

@@ -36,8 +36,12 @@
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">Login PPDB SMK IM Solusi</p>
+            <p class="login-box-msg">Pendaftaran Akun</p>
             <form id="loginForm">
+                <div class="form-group has-feedback">
+                    <input type="text" id="nama" class="form-control" placeholder="Nama">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
                 <div class="form-group has-feedback">
                     <input type="text" id="username" class="form-control" placeholder="NISN">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -53,11 +57,11 @@
                                 <input type="checkbox" id="showPassword"> Show Password
                             </label>
                         </div>
-                        <p>Belum Punya Akun? <b><a href="./?page=pendaftaran">Daftar Disini</a></b> </p>
+                        <p>Sudah Punya Akun? <b><a href="./?page=login">Login Disini</a></b> </p>
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="button" onclick="actLogin();" class="btn btn-primary btn-block btn-flat">Login</button>
+                        <button type="button" onclick="actRegistrasi();" class="btn btn-primary btn-block btn-flat">Daftar</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -89,8 +93,10 @@
             });
         });
 
-        async function actLogin() {
+        async function actRegistrasi() {
             try {
+
+                const nama = document.getElementById('nama').value;
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
 
@@ -98,24 +104,26 @@
                     url: 'action.php',
                     method: 'POST',
                     data: {
-                        aksi: 'login',
+                        aksi: 'pendaftaran',
+                        nama: nama,
                         username: username,
                         password: password
                     }
                 });
 
-                var pesan = response.message;
-                var suk = response.success;
-
                 // Assuming that your server responds with a JSON object
                 if (response.success == true) {
+                    var pesan = response.message;
+                    var suk = response.success;
                     alert(pesan);
                     window.location = './';
                 } else {
+                    var pesan = response.message;
+                    var suk = response.success;
                     alert(pesan);
                 }
             } catch (error) {
-                console.error('An error occurred during the login request:', error);
+                console.error('An error occurred during the registration request:', error);
                 alert('An error occurred. Please try again later.');
             }
         }

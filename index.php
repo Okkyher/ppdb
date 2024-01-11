@@ -22,7 +22,15 @@ if (isset($_SESSION['login'])) {
         include('template/footer.php');
     }
 } else {
-    include('template/login.php');
+    if (!empty($_GET['page'])) {
+        if ($_GET['page'] == 'login') {
+            include('template/login.php');
+        } else if ($_GET['page'] == 'pendaftaran') {
+            include('template/pendaftaran.php');
+        }
+    } else {
+        include('template/home.php');
+    }
 }
 
 $pdo = null;

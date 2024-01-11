@@ -1,7 +1,7 @@
 <?php
 // Database connection parameters
 $host = 'localhost';
-$db   = 'apli_cims';
+$db   = 'apli_ppdb';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
