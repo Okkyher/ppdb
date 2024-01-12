@@ -26,8 +26,13 @@ if (isset($_SESSION['login']['id'])) {
     $stmt_user->execute(['id' => $iduser]);
     $usr = $stmt_user->fetch();
     $level = $usr['level'];
-    $nisn = $usr['nisn'];
-    $nama = $usr['nama'];
+    if (isset($level) && $level == 'User') {
+        $nisn = $usr['nisn'];
+        $nama = $usr['nama'];
+    } else {
+        $nisn = 10001;
+        $nama = 'Administrator';
+    }
 
     // Fetch data from the database jurusan
     $stmt_jurusan = $pdo->prepare("SELECT * FROM jurusan");
@@ -67,8 +72,9 @@ if (isset($_SESSION['login']['id'])) {
             file_put_contents($imagePath, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $image)));
 
             // Example of inserting data
-            $stmt_upload_foto = $pdo->prepare("UPDATE `mod_data_alumnia` SET `pretasi` = ?, `peringkat` = ?, `hafal` = ?, `jmljuz` = ?, `foto` = ? WHERE `id` = ?");
-            $stmt_upload_foto->execute([$prestasi, $peringkat, $hafal, $jmljuz, $imagePath, $iduser]);
+            $date_add = date("Y-m-d");
+            $stmt_upload_foto = $pdo->prepare("UPDATE `mod_data_alumnia` SET `pretasi` = ?, `peringkat` = ?, `hafal` = ?, `jmljuz` = ?, `foto` = ?, `tahap` = ?, `date_add` = ? WHERE `id` = ?");
+            $stmt_upload_foto->execute([$prestasi, $peringkat, $hafal, $jmljuz, $imagePath, '2', $date_add, $iduser]);
 
             unset($_SESSION['tempstep1'], $_SESSION['tempstep2'], $_SESSION['tempstep3']);
             echo "<script type='text/javascript'>alert('Proses pendaftaran telah berhasil dan selanjutnya akan kami proses ke tahapan verifikasi administrasi untuk selanjutnya menerima kartu test');</script>";

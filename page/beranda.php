@@ -11,79 +11,173 @@
             <li class="active">Dashboard</li>
         </ol>
     </section>
+    <?php if ($level == 'User') { ?>
+        <!-- Main content -->
+        <sectio n class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <?php if ($usr['tahap'] == 1) { ?>
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>Formulir</h3>
 
-    <!-- Main content -->
-    <section class="content">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-aqua">
-                    <div class="inner">
-                        <h3>Formulir</h3>
+                                <p>Isi Formulir</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-edit"></i>
+                            </div>
+                            <a href="./?page=isi-formulir" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                <?php } else if ($usr['tahap'] == 2) { ?>
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>Biodata</h3>
 
-                        <p>Isi Formulir</p>
+                                <p>Data Diri</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-edit"></i>
+                            </div>
+                            <a href="./?page=biodata" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-edit"></i>
+                <?php } ?>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>Kartu<!--<sup style="font-size: 20px">%</sup>--></h3>
+
+                            <p>Cetak Kartu</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-checkmark-circled"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
                     </div>
-                    <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3>Kartu<!--<sup style="font-size: 20px">%</sup>--></h3>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>Informasi</h3>
 
-                        <p>Cetak Kartu</p>
+                            <p>Informasi</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-refresh"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-checkmark-circled"></i>
-                    </div>
-                    <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-yellow">
-                    <div class="inner">
-                        <h3>Informasi</h3>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>Pengumuman</h3>
 
-                        <p>Informasi</p>
+                            <p>Pengumuman</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-android-remove-circle"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-refresh"></i>
-                    </div>
-                    <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
                 </div>
+                <!-- ./col -->
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h3>Pengumuman</h3>
+            <!-- /.row -->
+            <!-- Main row -->
+            <div class="row">
 
-                        <p>Pengumuman</p>
+            </div>
+            <!-- /.row (main row) -->
+
+            </section>
+            <!-- /.content -->
+        <?php } else { ?>
+            <!-- Main content -->
+            <section class="content">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>100</h3>
+
+                                <p>Lulus Verifikasi</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-edit"></i>
+                            </div>
+                            <a href="./?page=biodata" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-android-remove-circle"></i>
+
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>250</h3>
+
+                                <p>Total Pendaftar</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-checkmark-circled"></i>
+                            </div>
+                            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
-                    <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                <h3>16</h3>
+
+                                <p>Tidak Lulus</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-refresh"></i>
+                            </div>
+                            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>80</h3>
+
+                                <p>Jalur Prestasi</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-android-remove-circle"></i>
+                            </div>
+                            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
                 </div>
-            </div>
-            <!-- ./col -->
-        </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
+                <!-- /.row -->
+                <!-- Main row -->
+                <div class="row">
 
-        </div>
-        <!-- /.row (main row) -->
+                </div>
+                <!-- /.row (main row) -->
 
-    </section>
-    <!-- /.content -->
+            </section>
+            <!-- /.content -->
+        <?php } ?>
 </div>
