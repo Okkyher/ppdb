@@ -101,7 +101,7 @@
                 const password = document.getElementById('password').value;
 
                 const response = await $.ajax({
-                    url: 'action.php',
+                    url: 'include/action.php',
                     method: 'POST',
                     data: {
                         aksi: 'pendaftaran',

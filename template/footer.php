@@ -240,6 +240,48 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<script src="script.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#prestasi").change(function() {
+            var prestasi = $("#prestasi").val();
+            if (prestasi == 'Ya') {
+                $.ajax({
+                    url: 'template/html.php',
+                    method: 'POST',
+                    data: {
+                        show: 'rangking'
+                    },
+                    success: function(data) {
+                        $('#ShowRangking').html(data);
+                    }
+                });
+            } else {
+                $('#ShowRangking').html('');
+                $('#ShowHafal').html('');
+            }
+        });
+    });
+
+    function Apahafal() {
+        var hafal = $("#hafal").val();
+        if (hafal == 'Ya') {
+            $.ajax({
+                url: 'template/html.php',
+                method: 'POST',
+                data: {
+                    show: 'hafal'
+                },
+                success: function(data) {
+                    $('#ShowHafal').html(data);
+                }
+            });
+        } else {
+            $('#ShowHafal').html('');
+        }
+    }
+</script>
 </body>
 
 </html>

@@ -35,7 +35,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -64,17 +64,24 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Admin</span>
+                                <?php if (isset($usr['foto'])) { ?>
+                                    <img src="<?php echo $usr['foto']; ?>" class="user-image" alt="User Image">
+                                <?php } else { ?>
+                                    <img src="dist/img/no-profile-picture-icon.png" class="user-image" alt="User Image">
+                                <?php } ?>
+                                <span class="hidden-xs"><?php echo $nama; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                                    <?php if (isset($usr['foto'])) { ?>
+                                        <img src="<?php echo $usr['foto']; ?>" class="img-circle" alt="User Image">
+                                    <?php } else { ?>
+                                        <img src="dist/img/no-profile-picture-icon.png" class="img-circle" alt="User Image">
+                                    <?php } ?>
                                     <p>
-                                        Admin
-                                        <small>Last Login </small>
+                                        <?php echo $nama; ?>
+                                        <small>Last Login : <?php echo $usr['lastlog']; ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -118,10 +125,14 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <?php if (isset($usr['foto'])) { ?>
+                            <img src="<?php echo $usr['foto']; ?>" class="img-circle" alt="User Image">
+                        <?php } else { ?>
+                            <img src="dist/img/no-profile-picture-icon.png" class="img-circle" alt="User Image">
+                        <?php } ?>
                     </div>
                     <div class="pull-left info">
-                        <p>Admin</p>
+                        <p><?php echo $nama; ?></p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -136,29 +147,7 @@
                     </div>
                 </form> -->
                 <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">MAIN NAVIGATION</li>
-                    <li><a href="./"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li><a href="./?page=isi-formulir"><i class="fa fa-link"></i> Isi Formulir</a></li>
-                    <!-- <li><a href="./?page=terselesaikan"><i class="fa fa-link"></i> Terelesaikan</a></li>
-                    <li><a href="./?page=profile"><i class="fa fa-link"></i> Profile</a></li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-link"></i> <span>Laporan</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="./"><i class="fa fa-circle-o"></i> Terselesaikan</a></li>
-                            <li><a href="./"><i class="fa fa-circle-o"></i> Belum Selesai</a></li>
-                            <li><a href="./"><i class="fa fa-circle-o"></i> Tidak Selesai</a></li>
-                        </ul>
-                    </li> -->
-                    <li><a href="./?logout=yes"><i class="fa fa-power-off"></i> Logout</a></li>
-
-                </ul>
+                <?php require_once('leftmenu.php'); ?>
             </section>
             <!-- /.sidebar -->
         </aside>
