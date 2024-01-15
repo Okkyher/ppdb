@@ -35,9 +35,21 @@ if (isset($_SESSION['login']['id'])) {
     }
 
     // Fetch data from the database jurusan
-    $stmt_jurusan = $pdo->prepare("SELECT * FROM jurusan");
+    $stmt_jurusan = $pdo->prepare("SELECT * FROM `jurusan` ORDER BY `id` ASC");
     $stmt_jurusan->execute();
     $jurusan_db = $stmt_jurusan->fetchAll();
+    // Fetch data from the database kelas
+    $stmt_kelas = $pdo->prepare("SELECT * FROM `kelas` ORDER BY `id` ASC");
+    $stmt_kelas->execute();
+    $kelas_db = $stmt_kelas->fetchAll();
+    // Fetch data from the database gelombang_reg
+    $stmt_wvreg = $pdo->prepare("SELECT * FROM `gelombang_reg` ORDER BY `id` ASC");
+    $stmt_wvreg->execute();
+    $wave_reg_db = $stmt_wvreg->fetchAll();
+    // Fetch data from the database reguler
+    $stmt_wvreg = $pdo->prepare("SELECT * FROM `pengguna` ORDER BY `UserId` ASC");
+    $stmt_wvreg->execute();
+    $wave_reg_db = $stmt_wvreg->fetchAll();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Process image upload

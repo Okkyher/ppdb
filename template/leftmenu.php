@@ -57,7 +57,7 @@ if ($level == 'User') {
                 <li><a href="./?page=md-jurusan"><i class="fa fa-circle-o"></i> Jurusan</a></li>
                 <li><a href="./?page=md-kelas"><i class="fa fa-circle-o"></i> Kelas</a></li>
                 <!-- <li><a href="./"><i class="fa fa-circle-o"></i> Jadwal Tes</a></li> -->
-                <li><a href="./"><i class="fa fa-circle-o"></i> Gelombang Pendaftaran</a></li>
+                <li><a href="./?page=md-gelombang-reg"><i class="fa fa-circle-o"></i> Gelombang Pendaftaran</a></li>
             </ul>
         </li>
         <li><a href="./?logout=yes"><i class="fa fa-power-off"></i> Logout</a></li>

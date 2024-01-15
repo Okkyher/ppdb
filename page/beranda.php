@@ -13,7 +13,7 @@
     </section>
     <?php if ($level == 'User') { ?>
         <!-- Main content -->
-        <sectio n class="content">
+        <section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <?php if ($usr['tahap'] == 1) { ?>
@@ -101,83 +101,83 @@
             </div>
             <!-- /.row (main row) -->
 
-            </section>
-            <!-- /.content -->
-        <?php } else { ?>
-            <!-- Main content -->
-            <section class="content">
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
-                    <div class="col-lg-3 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-aqua">
-                            <div class="inner">
-                                <h3>100</h3>
+        </section>
+        <!-- /.content -->
+    <?php } else { ?>
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>100</h3>
 
-                                <p>Lulus Verifikasi</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-edit"></i>
-                            </div>
-                            <a href="./?page=biodata" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                            <p>Lulus Verifikasi</p>
                         </div>
-                    </div>
-
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-green">
-                            <div class="inner">
-                                <h3>250</h3>
-
-                                <p>Total Pendaftar</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-checkmark-circled"></i>
-                            </div>
-                            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                        <div class="icon">
+                            <i class="ion ion-edit"></i>
                         </div>
+                        <a href="./?page=biodata" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
                     </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-yellow">
-                            <div class="inner">
-                                <h3>16</h3>
-
-                                <p>Tidak Lulus</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-refresh"></i>
-                            </div>
-                            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-xs-6">
-                        <!-- small box -->
-                        <div class="small-box bg-red">
-                            <div class="inner">
-                                <h3>80</h3>
-
-                                <p>Jalur Prestasi</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-android-remove-circle"></i>
-                            </div>
-                            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
                 </div>
-                <!-- /.row -->
-                <!-- Main row -->
-                <div class="row">
 
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>250</h3>
+
+                            <p>Total Pendaftar</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-checkmark-circled"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
-                <!-- /.row (main row) -->
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>16</h3>
 
-            </section>
-            <!-- /.content -->
-        <?php } ?>
+                            <p>Tidak Lulus</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-refresh"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>80</h3>
+
+                            <p>Jalur Prestasi</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-android-remove-circle"></i>
+                        </div>
+                        <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+            <!-- Main row -->
+            <div class="row">
+
+            </div>
+            <!-- /.row (main row) -->
+
+        </section>
+        <!-- /.content -->
+    <?php } ?>
 </div>

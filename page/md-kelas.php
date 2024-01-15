@@ -3,12 +3,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Data Masuk
+            Master Data
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
-            <li><a href="#">Data Masuk</a></li>
-            <li class="active">Pendaftar Reguler</li>
+            <li><a href="#">Master Data</a></li>
+            <li class="active">Kelas</li>
         </ol>
     </section>
 
@@ -18,9 +18,9 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Pendaftar Reguler</h3>
+                        <h3 class="box-title">Kelas</h3>
                         <div class="pull-right">
-                            <button type="button" class="btn btn-success btn-xs" onclick="popModal(1,'add-gelombang-reg');"><i class="fa fa-plus"></i> Gelombang Pendaftaran</button>
+                            <button type="button" class="btn btn-success btn-xs" onclick="popModal(1,'add-kelas');"><i class="fa fa-plus"></i> Kelas</button>
                         </div>
                     </div>
                     <div class="box-body">
@@ -29,24 +29,23 @@
                                 <thead>
                                     <tr>
                                         <th class="center-align">No.</th>
-                                        <th>Nama</th>
-                                        <th>Asal Sekolah</th>
-                                        <th>NISN</th>
+                                        <th>Nama Kelas / Ruangan</th>
+                                        <th>Kuota</th>
                                         <th class="center-align">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
-                                    foreach ($reguler_reg_db as $reg) { ?>
+                                    foreach ($kelas_db as $kls) { ?>
                                         <tr>
                                             <td class="center-align"><?php echo $no; ?>.</td>
-                                            <td><?php echo $reg['nama']; ?></td>
-                                            <td><?php echo $reg['asalsekolah']); ?></td>
-                                            <td><?php echo $reg['nisn']); ?></td>
+                                            <td><?php echo $kls['nama']; ?></td>
+                                            <td><?php echo number_format($kls['kuota']); ?></td>
                                             <td class="center-align">
                                                 <div class="btn-group btn-group-xs act" role="group" aria-label="...">
-                                                    <button type="button" class="btn btn-primary btn-xs" onclick="popModal(<?php echo $wvr['id']; ?>,'edit-gelombang-reg');"><i class="glyphicon glyphicon-edit"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-xs" onclick="DelData(<?php echo $wvr['id']; ?>, 'id','gelombang_reg');"><i class="glyphicon glyphicon-trash"></i></button>
+                                                    <button type="button" class="btn btn-primary btn-xs" onclick="popModal(<?php echo $kls['id']; ?>,'edit-kelas');"><i class="glyphicon glyphicon-edit"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-xs" onclick="DelData(<?php echo $kls['id']; ?>, 'id','kelas');"><i class="glyphicon glyphicon-trash"></i></button>
+
                                                 </div>
                                             </td>
                                         </tr>
