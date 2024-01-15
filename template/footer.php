@@ -7,6 +7,12 @@
     reserved.
 </footer>
 
+<!-- start modal form -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="data_modal"></div>
+</div>
+<!-- end modal form -->
+
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark" style="display: none;">
     <!-- Create the tabs -->
@@ -279,6 +285,49 @@
             });
         } else {
             $('#ShowHafal').html('');
+        }
+    }
+
+    function popModal(id, tp) {
+        // memulai ajax
+        $.ajax({
+            url: 'include/modal.php', // set url -> ini file yang menyimpan query tampil detail data siswa
+            method: 'POST', // method -> metodenya pakai post. Tahu kan post? gak tahu? browsing aja :)
+            data: {
+                id: id,
+                tp: tp
+            }, // nah ini datanya -> {id:id} = berarti menyimpan data post id yang nilainya dari = var id = $(this).attr("id");
+            success: function(data) { // kode dibawah ini jalan kalau sukses
+                $('#data_modal').html(data); // mengisi konten dari -> <div class="modal-body" id="data_siswa">
+                $('#myModal').modal("show"); // menampilkan dialog modal nya
+            }
+        });
+    }
+
+    function DelData(id, col, table) {
+        var userConfirmed = window.confirm("Apakah Anda Yakin Ingin Menghapus Data Berikut?\nData yang sudah dihapus tidak dapat dikembalikan!");
+        if (userConfirmed) {
+            // memulai ajax
+            $.ajax({
+                url: 'include/action.php',
+                method: 'POST',
+                data: {
+                    aksi: 'hapus-data',
+                    id: id,
+                    col: col,
+                    table: table
+                },
+                success: function(result) {
+                    if (result.success == true) {
+                        alert(result.message);
+                        location.reload();
+                    } else {
+                        alert(result.message);
+                    }
+                }
+            });
+        } else {
+            alert('batal');
         }
     }
 </script>

@@ -38,6 +38,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style>
+        .center-align {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
