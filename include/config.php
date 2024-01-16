@@ -38,18 +38,26 @@ if (isset($_SESSION['login']['id'])) {
     $stmt_jurusan = $pdo->prepare("SELECT * FROM `jurusan` ORDER BY `id` ASC");
     $stmt_jurusan->execute();
     $jurusan_db = $stmt_jurusan->fetchAll();
+
     // Fetch data from the database kelas
     $stmt_kelas = $pdo->prepare("SELECT * FROM `kelas` ORDER BY `id` ASC");
     $stmt_kelas->execute();
     $kelas_db = $stmt_kelas->fetchAll();
+
     // Fetch data from the database gelombang_reg
     $stmt_wvreg = $pdo->prepare("SELECT * FROM `gelombang_reg` ORDER BY `id` ASC");
     $stmt_wvreg->execute();
     $wave_reg_db = $stmt_wvreg->fetchAll();
+
     // Fetch data from the database reguler
-    $stmt_wvreg = $pdo->prepare("SELECT * FROM `pengguna` ORDER BY `UserId` ASC");
-    $stmt_wvreg->execute();
-    $wave_reg_db = $stmt_wvreg->fetchAll();
+    $stmt_reg_sub = $pdo->prepare("SELECT * FROM `pengguna` JOIN `mod_data_alumnia` ON `pengguna`.`UserId`=`mod_data_alumnia`.`id` WHERE `mod_data_alumnia`.`tahap`='2' AND `mod_data_alumnia`.`hafal` IN ('','Tidak') ORDER BY `pengguna`.`UserId` DESC");
+    $stmt_reg_sub->execute();
+    $reg_sub_db = $stmt_reg_sub->fetchAll();
+
+    // Fetch data from the database reguler
+    $stmt_prest_sub = $pdo->prepare("SELECT * FROM `pengguna` JOIN `mod_data_alumnia` ON `pengguna`.`UserId`=`mod_data_alumnia`.`id` WHERE `mod_data_alumnia`.`tahap`='2' AND `mod_data_alumnia`.`pretasi` = 'Ya' AND `mod_data_alumnia`.`hafal` = 'Ya' ORDER BY `pengguna`.`UserId` DESC");
+    $stmt_prest_sub->execute();
+    $prest_sub_db = $stmt_prest_sub->fetchAll();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Process image upload

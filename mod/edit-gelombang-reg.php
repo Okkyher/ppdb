@@ -1,11 +1,13 @@
+<?php $id = $_POST['id']; ?>
 <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Tambah Gelombang Pendaftaran</h4>
+            <h4 class="modal-title" id="myModalLabel">Edit Gelombang Pendaftaran</h4>
         </div>
         <div class="modal-body">
             <form class="row">
+                <input type="hidden" id="id" name="id" value="<?php echo $id; ?>" required="required">
                 <div class="form-group col-md-12">
                     <label class="control-label">Nama</label>
                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama" required="required">
@@ -31,7 +33,7 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" onclick="actAddGelombang();" class="btn btn-primary"> <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span> Save</button>
+            <button type="button" onclick="actEditGelombang();" class="btn btn-primary"> <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span> Save</button>
             <button type="button" class="btn btn-default" data-dismiss="modal"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Close</button>
         </div>
     </div>
@@ -51,8 +53,25 @@
             autoclose: true
         });
     });
-    async function actAddGelombang() {
+
+    var id = document.getElementById('id').value;
+    $.ajax({
+        url: 'include/action.php',
+        method: 'POST',
+        data: {
+            aksi: 'view-gelombang',
+            id: id,
+        },
+        success: function(result) {
+            document.getElementById('nama').value = result.nama;
+            document.getElementById('dari').value = result.dari;
+            document.getElementById('sampai').value = result.sampai;
+        }
+    });
+
+    async function actEditGelombang() {
         try {
+            const id = document.getElementById('id').value;
             const nama = document.getElementById('nama').value;
             const dari = document.getElementById('dari').value;
             const sampai = document.getElementById('sampai').value;
@@ -61,7 +80,8 @@
                 url: 'include/action.php',
                 method: 'POST',
                 data: {
-                    aksi: 'add-gelombang',
+                    aksi: 'edit-gelombang',
+                    id: id,
                     nama: nama,
                     dari: dari,
                     sampai: sampai

@@ -82,7 +82,7 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <?php if (isset($usr['foto'])) { ?>
+                                <?php if ($usr['tahap'] == '2') { ?>
                                     <img src="<?php echo $usr['foto']; ?>" class="user-image" alt="User Image">
                                 <?php } else { ?>
                                     <img src="dist/img/no-profile-picture-icon.png" class="user-image" alt="User Image">
@@ -92,7 +92,7 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <?php if (isset($usr['foto'])) { ?>
+                                    <?php if ($usr['tahap'] == '2') { ?>
                                         <img src="<?php echo $usr['foto']; ?>" class="img-circle" alt="User Image">
                                     <?php } else { ?>
                                         <img src="dist/img/no-profile-picture-icon.png" class="img-circle" alt="User Image">
@@ -143,7 +143,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <?php if (isset($usr['foto'])) { ?>
+                        <?php if ($usr['tahap'] == '2') { ?>
                             <img src="<?php echo $usr['foto']; ?>" class="img-circle" alt="User Image">
                         <?php } else { ?>
                             <img src="dist/img/no-profile-picture-icon.png" class="img-circle" alt="User Image">
