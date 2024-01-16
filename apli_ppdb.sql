@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jan 2024 pada 11.13
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 7.4.30
+-- Waktu pembuatan: 16 Jan 2024 pada 03.51
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `menu` varchar(30) NOT NULL DEFAULT '',
   `url` varchar(60) NOT NULL DEFAULT '',
   `mod` int(1) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `admin`
@@ -53,6 +53,26 @@ INSERT INTO `admin` (`id`, `menu`, `url`, `mod`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `gelombang_reg`
+--
+
+CREATE TABLE `gelombang_reg` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `dari` date NOT NULL,
+  `sampai` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `gelombang_reg`
+--
+
+INSERT INTO `gelombang_reg` (`id`, `nama`, `dari`, `sampai`) VALUES
+(1, 'Gelombang 1 (Khusus Ketrampilan dan Boarding)', '2024-02-01', '2024-02-17');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `halaman`
 --
 
@@ -60,7 +80,7 @@ CREATE TABLE `halaman` (
   `id` int(11) NOT NULL,
   `judul` varchar(80) NOT NULL DEFAULT '',
   `konten` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `halaman`
@@ -85,21 +105,42 @@ CREATE TABLE `jurusan` (
   `id` bigint(30) NOT NULL,
   `kode` varchar(60) NOT NULL DEFAULT '',
   `nama` varchar(60) NOT NULL DEFAULT '',
-  `tampung` varchar(60) NOT NULL DEFAULT '',
+  `tampung` int(60) NOT NULL,
   `rekap` varchar(9) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `jurusan`
 --
 
 INSERT INTO `jurusan` (`id`, `kode`, `nama`, `tampung`, `rekap`) VALUES
-(4, 'TB', 'Tata Busana', '72', ''),
-(6, 'DIPF', 'Desain Interior dan Produk Furniture', '54', ''),
-(7, 'OTO', 'Teknik dan Bisnis Sepeda Motor', '18', ''),
-(8, 'TPL', 'Teknik Pemesinan dan Pengelasan', '36', ''),
-(10, 'MUL', 'Multimedia', '36', ''),
-(11, 'SBS', 'Science Boarding School (Khusus Putri)', '36', '');
+(4, 'TB', 'Tata Busana', 72, ''),
+(6, 'DIPF', 'Desain Interior dan Produk Furniture', 54, ''),
+(7, 'OTO', 'Teknik dan Bisnis Sepeda Motor', 18, ''),
+(8, 'TPL', 'Teknik Pemesinan dan Pengelasan', 36, ''),
+(10, 'MUL', 'Multimedia', 36, ''),
+(11, 'SBS', 'Science Boarding School (Khusus Putri)', 36, '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kelas`
+--
+
+CREATE TABLE `kelas` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `kuota` int(50) NOT NULL,
+  `create_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `kelas`
+--
+
+INSERT INTO `kelas` (`id`, `nama`, `kuota`, `create_at`) VALUES
+(1, 'Ruang IA', 25, '2024-01-15 15:51:45'),
+(2, 'Ruang IB', 25, '2024-01-15 15:52:27');
 
 -- --------------------------------------------------------
 
@@ -118,7 +159,7 @@ CREATE TABLE `konfirmasi_bayar` (
   `bank_tujuan` varchar(500) NOT NULL DEFAULT 'BPD JATENG No Rek 2011047966',
   `status_bayar` int(5) NOT NULL,
   `tgl_inp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `konfirmasi_bayar`
@@ -160,7 +201,7 @@ CREATE TABLE `menu` (
   `url` varchar(127) NOT NULL DEFAULT '',
   `published` int(1) NOT NULL DEFAULT 1,
   `ordering` int(2) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `menu`
@@ -179,7 +220,7 @@ CREATE TABLE `menu_users` (
   `id` int(6) NOT NULL,
   `menu` varchar(255) NOT NULL DEFAULT '',
   `url` varchar(255) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `menu_users`
@@ -257,15 +298,15 @@ CREATE TABLE `mod_data_alumnia` (
   `valid` varchar(20) NOT NULL DEFAULT 'Belum Diverifikasi',
   `tahap` varchar(1) NOT NULL DEFAULT '1',
   `date_add` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `mod_data_alumnia`
 --
 
 INSERT INTO `mod_data_alumnia` (`id`, `nisn`, `jurusan`, `nama`, `lahir`, `tgl`, `bln`, `thn`, `nik`, `nok`, `kip`, `kelamin`, `akta`, `agama`, `tinggi`, `berat`, `tato`, `penyakit`, `asal_sekolah`, `sem_i`, `rata_i`, `sem_ii`, `rata_ii`, `sem_iii`, `rata_iii`, `sem_iv`, `rata_iv`, `sem_v`, `rata_v`, `indo`, `ing`, `mat`, `ipa`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `nama_ayah`, `kerja_ayah`, `nama_ibu`, `kerja_ibu`, `gaji_dr`, `gaji_sm`, `hp`, `pretasi`, `peringkat`, `hafal`, `jmljuz`, `foto`, `lulus`, `valid`, `tahap`, `date_add`) VALUES
-(1705041711, '442115', 'Multimedia', 'Okky Hernanto', 'Kediri', '20', 'Oktober', '2001', '331122112222111', '3313122548771', '12333', 'Laki-laki', '112233665845', 'Kristen', '123', '23', 'Tidak Ada', '', 'Sekolah Asal', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', 'Sragen', '02', '15', 'Kedungjeruk', 'Kedungjeruk', 'Mojogedang', 'Karanganyar', 'Bapak', 'dasdasd', 'Ibu', 'asdad', '10000000', '1000000', '82132554478852', 'Ya', '1', 'Ya', 'Lebih dari 5 juz', 'uploads/65a0ee6d7688b.png', 'Tidak Lulus', 'Belum Diverifikasi', '2', '0000-00-00'),
-(1705043092, '147852', 'Desain Interior dan Produk Furniture', 'devano', 'sragen', '01', 'Agustus', '2001', '331403160694044', '331403160694044523', '', 'Laki-laki', 'GJK5858', 'islam', '172', '68', 'Tidak Ada', '', 'SMP Negeri 2 Salatiga', '90', '90', '92', '90', '91', '90', '90', '88', '89', '85', '88', '85', '81', '89', 'Jl. Raya Grompol - Jambangan KM. 1,5 Krebet Masaran Sragen', '30', '20', 'Klangenan', 'krebet', 'masaran', 'sragen', 'steven', 'wiraswasta', 'jennie', 'pramugari', '10000000', '25000000', '08953330114', 'Tidak', '', '', '', 'uploads/65a0f3279843b.png', 'Tidak Lulus', 'Belum Diverifikasi', '2', '0000-00-00');
+(1705305981, '456456', 'Desain Interior dan Produk Furniture', 'Okky Hernanto', 'Kediri', '20', 'Oktober', '2001', '331122112222111', '3313122548771', '', 'Laki-laki', '112233665845', 'Kristen', '123', '23', 'Tidak Ada', '-', 'Sekolah Asal', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', 'Kedungjeruk', '02', '15', 'Kedungjeruk', 'Kedungjeruk', 'Mojogedang', 'Karanganyar', 'Bapak', 'fghfgh', 'Ibu', 'asdad', '10000000', '1000000000', '082136273055', 'Ya', '1', 'Ya', 'Lebih dari 5 juz', 'uploads/65a4e81229459.png', 'Tidak Lulus', 'Belum Diverifikasi', '2', '2024-01-15'),
+(1705308818, '888888', '\'Belum dipilih\'', 'ichwan media', '\'\'', '', '', '', '', '', '', '\'\'', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Tidak Lulus', 'Belum Diverifikasi', '1', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -281,16 +322,16 @@ CREATE TABLE `pengguna` (
   `level` enum('Administrator','Editor','User') NOT NULL DEFAULT 'User',
   `tipe` varchar(250) NOT NULL DEFAULT 'aktif',
   `lastlog` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `pengguna`
 --
 
 INSERT INTO `pengguna` (`UserId`, `user`, `password`, `email`, `level`, `tipe`, `lastlog`) VALUES
-(1705043092, '147852', '$2y$10$Gmfbyq2FnvzEDOX55oYbaeEwhE.aLs5A48snZmVMoKlJ0zTwVoXj.', 'user@websitedemo.com', 'User', 'aktif', '0000-00-00 00:00:00'),
-(1705041711, '442115', '$2y$10$QokNBGPcR1lye4j7.kpYkeu6dllXA1NzjHhD96LcRjKVxVUg0DJQ6', 'user@websitedemo.com', 'User', 'aktif', '2024-01-12 09:13:04'),
-(1, 'adminsmk', '$2y$10$MRsQ4YrLxM8Jo13SGKXCguQzR8ZXh.MT9vGQsgmti/Whrg1DZ2z4a', 'user@websitedemo.com', 'Administrator', 'aktif', '2024-01-12 11:02:24');
+(1, 'adminsmk', '$2y$10$MRsQ4YrLxM8Jo13SGKXCguQzR8ZXh.MT9vGQsgmti/Whrg1DZ2z4a', 'user@websitedemo.com', 'Administrator', 'aktif', '2024-01-16 01:59:43'),
+(1705305981, '456456', '$2y$10$fmsL4eJ1R12NLKyn1Eh.iukgdE/0Ev4.De4ZLQXEQY8BlEA6iEtbe', 'user@websitedemo.com', 'User', 'aktif', '2024-01-15 09:09:46'),
+(1705308818, '888888', '$2y$10$MTl22eYiI.Yf/nTteikYQ.5dZIzQnHr2X0OYkj9D3tQ21saNIx9yS', 'user@websitedemo.com', 'User', 'aktif', '2024-01-16 03:39:52');
 
 -- --------------------------------------------------------
 
@@ -307,7 +348,7 @@ CREATE TABLE `pengumuman` (
   `tgl_lahir` date NOT NULL,
   `jurusan` varchar(60) NOT NULL,
   `kelulusan` enum('Lulus','Tidak Lulus') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -320,7 +361,7 @@ CREATE TABLE `posted_ip` (
   `file` varchar(100) NOT NULL DEFAULT '',
   `ip` varchar(100) NOT NULL DEFAULT '',
   `time` bigint(20) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `posted_ip`
@@ -344,7 +385,7 @@ INSERT INTO `posted_ip` (`id`, `file`, `ip`, `time`) VALUES
 CREATE TABLE `sensor` (
   `id` bigint(20) NOT NULL,
   `word` varchar(50) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `sensor`
@@ -372,7 +413,7 @@ CREATE TABLE `stat_browse` (
   `ppilihan` text NOT NULL,
   `pjawaban` text NOT NULL,
   `id` int(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `stat_browse`
@@ -398,7 +439,7 @@ CREATE TABLE `submenu` (
   `parent` int(2) NOT NULL DEFAULT 0,
   `published` int(1) NOT NULL DEFAULT 1,
   `ordering` int(2) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `submenu`
@@ -446,7 +487,7 @@ CREATE TABLE `tb_setting` (
   `Web_Desc` varchar(255) NOT NULL,
   `Email_Admin` varchar(100) NOT NULL,
   `Url_Situs` varchar(225) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_setting`
@@ -469,7 +510,7 @@ CREATE TABLE `test_buta_warna` (
   `pil_1` varchar(25) NOT NULL,
   `pil_2` varchar(25) NOT NULL,
   `pil_3` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `test_buta_warna`
@@ -493,7 +534,7 @@ INSERT INTO `test_buta_warna` (`id_soal`, `gambar_soal`, `soal`, `jawaban`, `pil
 CREATE TABLE `user` (
   `UserId` int(15) UNSIGNED ZEROFILL NOT NULL,
   `image` varchar(150) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `user`
@@ -514,6 +555,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `gelombang_reg`
+--
+ALTER TABLE `gelombang_reg`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `halaman`
 --
 ALTER TABLE `halaman`
@@ -525,6 +572,12 @@ ALTER TABLE `halaman`
 ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nama` (`nama`);
+
+--
+-- Indeks untuk tabel `kelas`
+--
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `konfirmasi_bayar`
@@ -557,8 +610,7 @@ ALTER TABLE `mod_data_alumnia`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`UserId`),
-  ADD UNIQUE KEY `user_2` (`user`),
-  ADD KEY `user` (`user`);
+  ADD UNIQUE KEY `user` (`user`);
 
 --
 -- Indeks untuk tabel `pengumuman`
@@ -619,6 +671,12 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
 
 --
+-- AUTO_INCREMENT untuk tabel `gelombang_reg`
+--
+ALTER TABLE `gelombang_reg`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `halaman`
 --
 ALTER TABLE `halaman`
@@ -628,7 +686,13 @@ ALTER TABLE `halaman`
 -- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT untuk tabel `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `konfirmasi_bayar`
@@ -652,7 +716,7 @@ ALTER TABLE `menu_users`
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `UserId` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1705043093;
+  MODIFY `UserId` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1705308819;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengumuman`
