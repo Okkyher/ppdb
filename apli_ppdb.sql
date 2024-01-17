@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jan 2024 pada 03.51
+-- Waktu pembuatan: 17 Jan 2024 pada 03.46
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -305,7 +305,7 @@ CREATE TABLE `mod_data_alumnia` (
 --
 
 INSERT INTO `mod_data_alumnia` (`id`, `nisn`, `jurusan`, `nama`, `lahir`, `tgl`, `bln`, `thn`, `nik`, `nok`, `kip`, `kelamin`, `akta`, `agama`, `tinggi`, `berat`, `tato`, `penyakit`, `asal_sekolah`, `sem_i`, `rata_i`, `sem_ii`, `rata_ii`, `sem_iii`, `rata_iii`, `sem_iv`, `rata_iv`, `sem_v`, `rata_v`, `indo`, `ing`, `mat`, `ipa`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `nama_ayah`, `kerja_ayah`, `nama_ibu`, `kerja_ibu`, `gaji_dr`, `gaji_sm`, `hp`, `pretasi`, `peringkat`, `hafal`, `jmljuz`, `foto`, `lulus`, `valid`, `tahap`, `date_add`) VALUES
-(1705305981, '456456', 'Desain Interior dan Produk Furniture', 'Okky Hernanto', 'Kediri', '20', 'Oktober', '2001', '331122112222111', '3313122548771', '', 'Laki-laki', '112233665845', 'Kristen', '123', '23', 'Tidak Ada', '-', 'Sekolah Asal', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', 'Kedungjeruk', '02', '15', 'Kedungjeruk', 'Kedungjeruk', 'Mojogedang', 'Karanganyar', 'Bapak', 'fghfgh', 'Ibu', 'asdad', '10000000', '1000000000', '082136273055', 'Ya', '1', 'Ya', 'Lebih dari 5 juz', 'uploads/65a4e81229459.png', 'Tidak Lulus', 'Belum Diverifikasi', '2', '2024-01-15'),
+(1705305981, '456456', 'Desain Interior dan Produk Furniture', 'Okky Hernanto', 'Kediri', '20', 'Oktober', '2001', '331122112222111', '3313122548771', '', 'Laki-laki', '112233665845', 'Kristen', '123', '23', 'Tidak Ada', '-', 'Sekolah Asal', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', 'Kedungjeruk', '02', '15', 'Kedungjeruk', 'Kedungjeruk', 'Mojogedang', 'Karanganyar', 'Bapak', 'fghfgh', 'Ibu', 'asdad', '10000000', '1000000000', '082136273055', 'Ya', '1', 'Ya', 'Lebih dari 5 juz', 'uploads/65a4e81229459.png', 'Tidak Lulus', 'Sudah Diverifikasi', '3', '2024-01-15'),
 (1705308818, '888888', '\'Belum dipilih\'', 'ichwan media', '\'\'', '', '', '', '', '', '', '\'\'', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Tidak Lulus', 'Belum Diverifikasi', '1', '0000-00-00');
 
 -- --------------------------------------------------------
@@ -329,9 +329,9 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`UserId`, `user`, `password`, `email`, `level`, `tipe`, `lastlog`) VALUES
-(1, 'adminsmk', '$2y$10$MRsQ4YrLxM8Jo13SGKXCguQzR8ZXh.MT9vGQsgmti/Whrg1DZ2z4a', 'user@websitedemo.com', 'Administrator', 'aktif', '2024-01-16 01:59:43'),
-(1705305981, '456456', '$2y$10$fmsL4eJ1R12NLKyn1Eh.iukgdE/0Ev4.De4ZLQXEQY8BlEA6iEtbe', 'user@websitedemo.com', 'User', 'aktif', '2024-01-15 09:09:46'),
-(1705308818, '888888', '$2y$10$MTl22eYiI.Yf/nTteikYQ.5dZIzQnHr2X0OYkj9D3tQ21saNIx9yS', 'user@websitedemo.com', 'User', 'aktif', '2024-01-16 03:39:52');
+(1, 'adminsmk', '$2y$10$MRsQ4YrLxM8Jo13SGKXCguQzR8ZXh.MT9vGQsgmti/Whrg1DZ2z4a', 'user@websitedemo.com', 'Administrator', 'aktif', '2024-01-17 02:12:08'),
+(1705305981, '456456', '$2y$10$fmsL4eJ1R12NLKyn1Eh.iukgdE/0Ev4.De4ZLQXEQY8BlEA6iEtbe', 'user@websitedemo.com', 'User', 'aktif', '2024-01-17 03:30:45'),
+(1705308818, '888888', '$2y$10$MTl22eYiI.Yf/nTteikYQ.5dZIzQnHr2X0OYkj9D3tQ21saNIx9yS', 'user@websitedemo.com', 'User', 'aktif', '2024-01-17 03:30:26');
 
 -- --------------------------------------------------------
 
