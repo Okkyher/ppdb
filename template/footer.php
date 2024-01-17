@@ -357,6 +357,31 @@
             // alert('batal');
         }
     }
+
+    function verifikasi(id) {
+        var diVerifikasi = window.confirm("Apakah Anda Yakin Ingin Memverifikasi Pendaftar Berikut?");
+        if (diVerifikasi) {
+            // memulai ajax
+            $.ajax({
+                url: 'include/action.php',
+                method: 'POST',
+                data: {
+                    aksi: 'verifikasi-data',
+                    id: id
+                },
+                success: function(result) {
+                    if (result.success == true) {
+                        alert(result.message);
+                        location.reload();
+                    } else {
+                        alert(result.message);
+                    }
+                }
+            });
+        } else {
+
+        }
+    }
 </script>
 </body>
 

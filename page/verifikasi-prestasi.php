@@ -8,7 +8,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
             <li><a href="#">Data Masuk</a></li>
-            <li class="active">Pendaftar Reguler</li>
+            <li class="active">Pendaftar Prestasi</li>
         </ol>
     </section>
 
@@ -18,7 +18,7 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Pendaftar Reguler</h3>
+                        <h3 class="box-title">Calon Siswa Berprestasi</h3>
                         <div class="pull-right">
                             <!-- <button type="button" class="btn btn-success btn-xs" onclick="popModal(1,'add-gelombang-reg');"><i class="fa fa-plus"></i> Gelombang Pendaftaran</button> -->
                         </div>
@@ -32,26 +32,25 @@
                                         <th>Nama</th>
                                         <th>Asal Sekolah</th>
                                         <th>NISN</th>
+                                        <th>Kejuruan</th>
                                         <th class="center-align">Status</th>
-                                        <th class="center-align">Aksi</th>
+                                        <th class="center-align">Penerimaan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
-                                    foreach ($prest_sub_db as $prest) { ?>
+                                    foreach ($prest_ver_db as $prest) { ?>
                                         <tr>
                                             <td class="center-align"><?php echo $no; ?>.</td>
                                             <td><?php echo $prest['nama']; ?></td>
                                             <td><?php echo $prest['asal_sekolah']; ?></td>
                                             <td><?php echo $prest['nisn']; ?></td>
+                                            <td><?php echo $prest['jurusan']; ?></td>
                                             <td class="center-align">
-                                                <label class="label label-warning"><?php echo $prest['valid']; ?></label>
+                                                <label class="label label-success"><?php echo $prest['valid']; ?></label>
                                             </td>
                                             <td class="center-align">
-                                                <div class="btn-group btn-group-xs act" role="group" aria-label="...">
-                                                    <button type="button" class="btn btn-success btn-xs" onclick="popModal(<?php echo $prest['id']; ?>,'view-pendaftar');"><i class="glyphicon glyphicon-search"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-xs" onclick="DelData(<?php echo $prest['id']; ?>, 'id','gelombang_reg');"><i class="glyphicon glyphicon-trash"></i></button>
-                                                </div>
+                                                <label class="label label-primary">Belum Diterima</label>
                                             </td>
                                         </tr>
                                     <?php $no++;

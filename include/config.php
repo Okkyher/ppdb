@@ -59,6 +59,16 @@ if (isset($_SESSION['login']['id'])) {
     $stmt_prest_sub->execute();
     $prest_sub_db = $stmt_prest_sub->fetchAll();
 
+    // Fetch data from the database reguler
+    $stmt_reg_ver = $pdo->prepare("SELECT * FROM `pengguna` JOIN `mod_data_alumnia` ON `pengguna`.`UserId`=`mod_data_alumnia`.`id` WHERE `mod_data_alumnia`.`tahap`='3' AND `mod_data_alumnia`.`hafal` IN ('','Tidak') ORDER BY `pengguna`.`UserId` DESC");
+    $stmt_reg_ver->execute();
+    $reg_ver_db = $stmt_reg_ver->fetchAll();
+
+    // Fetch data from the database reguler
+    $stmt_prest_ver = $pdo->prepare("SELECT * FROM `pengguna` JOIN `mod_data_alumnia` ON `pengguna`.`UserId`=`mod_data_alumnia`.`id` WHERE `mod_data_alumnia`.`tahap`='3' AND `mod_data_alumnia`.`pretasi` = 'Ya' AND `mod_data_alumnia`.`hafal` = 'Ya' ORDER BY `pengguna`.`UserId` DESC");
+    $stmt_prest_ver->execute();
+    $prest_ver_db = $stmt_prest_ver->fetchAll();
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Process image upload
         if (isset($_POST['inpstep4']) && isset($_FILES['image']) && isset($_POST['croppedImage'])) {

@@ -32,6 +32,7 @@
                                         <th>Nama</th>
                                         <th>Asal Sekolah</th>
                                         <th>NISN</th>
+                                        <th class="center-align">Status</th>
                                         <th class="center-align">Aksi</th>
                                     </tr>
                                 </thead>
@@ -44,8 +45,11 @@
                                             <td><?php echo $prest['asal_sekolah']; ?></td>
                                             <td><?php echo $prest['nisn']; ?></td>
                                             <td class="center-align">
+                                                <label class="label label-warning" onclick="verifikasi(<?php echo $prest['id']; ?>);"><?php echo $prest['valid']; ?></label>
+                                            </td>
+                                            <td class="center-align">
                                                 <div class="btn-group btn-group-xs act" role="group" aria-label="...">
-                                                    <button type="button" class="btn btn-primary btn-xs" onclick="popModal(<?php echo $prest['id']; ?>,'edit-gelombang-reg');"><i class="glyphicon glyphicon-edit"></i></button>
+                                                    <button type="button" class="btn btn-success btn-xs" onclick="popModal(<?php echo $prest['id']; ?>,'view-pendaftar');"><i class="glyphicon glyphicon-search"></i></button>
                                                     <button type="button" class="btn btn-danger btn-xs" onclick="DelData(<?php echo $prest['id']; ?>, 'id','gelombang_reg');"><i class="glyphicon glyphicon-trash"></i></button>
                                                 </div>
                                             </td>
