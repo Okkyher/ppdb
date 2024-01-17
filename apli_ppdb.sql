@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jan 2024 pada 03.46
+-- Waktu pembuatan: 17 Jan 2024 pada 08.48
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -98,6 +98,30 @@ INSERT INTO `halaman` (`id`, `judul`, `konten`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `jadwal_tes`
+--
+
+CREATE TABLE `jadwal_tes` (
+  `id` int(11) NOT NULL,
+  `sesi` int(5) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jam` varchar(100) NOT NULL,
+  `id_ruangan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `jadwal_tes`
+--
+
+INSERT INTO `jadwal_tes` (`id`, `sesi`, `tanggal`, `jam`, `id_ruangan`) VALUES
+(11, 1, '2024-02-24', '10.00 - 12.00', 1),
+(12, 2, '2024-02-24', '13.00 - 15.00', 1),
+(13, 1, '2024-02-24', '10.00 - 12.00', 2),
+(14, 2, '2024-02-24', '13.00 - 15.00', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `jurusan`
 --
 
@@ -139,8 +163,8 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id`, `nama`, `kuota`, `create_at`) VALUES
-(1, 'Ruang IA', 25, '2024-01-15 15:51:45'),
-(2, 'Ruang IB', 25, '2024-01-15 15:52:27');
+(1, 'Ruangan Komputer 1', 25, '2024-01-15 15:51:45'),
+(2, 'Ruangan Komputer 2', 25, '2024-01-15 15:52:27');
 
 -- --------------------------------------------------------
 
@@ -305,7 +329,7 @@ CREATE TABLE `mod_data_alumnia` (
 --
 
 INSERT INTO `mod_data_alumnia` (`id`, `nisn`, `jurusan`, `nama`, `lahir`, `tgl`, `bln`, `thn`, `nik`, `nok`, `kip`, `kelamin`, `akta`, `agama`, `tinggi`, `berat`, `tato`, `penyakit`, `asal_sekolah`, `sem_i`, `rata_i`, `sem_ii`, `rata_ii`, `sem_iii`, `rata_iii`, `sem_iv`, `rata_iv`, `sem_v`, `rata_v`, `indo`, `ing`, `mat`, `ipa`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kabupaten`, `nama_ayah`, `kerja_ayah`, `nama_ibu`, `kerja_ibu`, `gaji_dr`, `gaji_sm`, `hp`, `pretasi`, `peringkat`, `hafal`, `jmljuz`, `foto`, `lulus`, `valid`, `tahap`, `date_add`) VALUES
-(1705305981, '456456', 'Desain Interior dan Produk Furniture', 'Okky Hernanto', 'Kediri', '20', 'Oktober', '2001', '331122112222111', '3313122548771', '', 'Laki-laki', '112233665845', 'Kristen', '123', '23', 'Tidak Ada', '-', 'Sekolah Asal', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', 'Kedungjeruk', '02', '15', 'Kedungjeruk', 'Kedungjeruk', 'Mojogedang', 'Karanganyar', 'Bapak', 'fghfgh', 'Ibu', 'asdad', '10000000', '1000000000', '082136273055', 'Ya', '1', 'Ya', 'Lebih dari 5 juz', 'uploads/65a4e81229459.png', 'Tidak Lulus', 'Sudah Diverifikasi', '3', '2024-01-15'),
+(1705305981, '456456', 'Desain Interior dan Produk Furniture', 'Okky Hernanto', 'Kediri', '20', 'Oktober', '2001', '331122112222111', '3313122548771', '', 'Laki-laki', '112233665845', 'Kristen', '123', '23', 'Tidak Ada', '-', 'Sekolah Asal', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', '9', 'Kedungjeruk', '02', '15', 'Kedungjeruk', 'Kedungjeruk', 'Mojogedang', 'Karanganyar', 'Bapak', 'fghfgh', 'Ibu', 'asdad', '10000000', '1000000000', '082136273055', 'Ya', '1', 'Ya', 'Lebih dari 5 juz', 'uploads/65a4e81229459.png', 'Sudah Diterima', 'Sudah Diverifikasi', '3', '2024-01-15'),
 (1705308818, '888888', '\'Belum dipilih\'', 'ichwan media', '\'\'', '', '', '', '', '', '', '\'\'', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Tidak Lulus', 'Belum Diverifikasi', '1', '0000-00-00');
 
 -- --------------------------------------------------------
@@ -329,8 +353,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`UserId`, `user`, `password`, `email`, `level`, `tipe`, `lastlog`) VALUES
-(1, 'adminsmk', '$2y$10$MRsQ4YrLxM8Jo13SGKXCguQzR8ZXh.MT9vGQsgmti/Whrg1DZ2z4a', 'user@websitedemo.com', 'Administrator', 'aktif', '2024-01-17 02:12:08'),
-(1705305981, '456456', '$2y$10$fmsL4eJ1R12NLKyn1Eh.iukgdE/0Ev4.De4ZLQXEQY8BlEA6iEtbe', 'user@websitedemo.com', 'User', 'aktif', '2024-01-17 03:30:45'),
+(1, 'adminsmk', '$2y$10$MRsQ4YrLxM8Jo13SGKXCguQzR8ZXh.MT9vGQsgmti/Whrg1DZ2z4a', 'user@websitedemo.com', 'Administrator', 'aktif', '2024-01-17 07:30:05'),
+(1705305981, '456456', '$2y$10$fmsL4eJ1R12NLKyn1Eh.iukgdE/0Ev4.De4ZLQXEQY8BlEA6iEtbe', 'user@websitedemo.com', 'User', 'aktif', '2024-01-17 08:46:37'),
 (1705308818, '888888', '$2y$10$MTl22eYiI.Yf/nTteikYQ.5dZIzQnHr2X0OYkj9D3tQ21saNIx9yS', 'user@websitedemo.com', 'User', 'aktif', '2024-01-17 03:30:26');
 
 -- --------------------------------------------------------
@@ -567,6 +591,13 @@ ALTER TABLE `halaman`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `jadwal_tes`
+--
+ALTER TABLE `jadwal_tes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_ruangan` (`id_ruangan`);
+
+--
 -- Indeks untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
@@ -683,6 +714,12 @@ ALTER TABLE `halaman`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
+-- AUTO_INCREMENT untuk tabel `jadwal_tes`
+--
+ALTER TABLE `jadwal_tes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
@@ -759,6 +796,16 @@ ALTER TABLE `test_buta_warna`
 --
 ALTER TABLE `user`
   MODIFY `UserId` int(15) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `jadwal_tes`
+--
+ALTER TABLE `jadwal_tes`
+  ADD CONSTRAINT `jadwal_tes_ibfk_1` FOREIGN KEY (`id_ruangan`) REFERENCES `kelas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

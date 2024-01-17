@@ -161,7 +161,7 @@ if (date('m') < 12) {
 		</div>
 		<hr style="border: 1px dashed">
 		<p style="text-align:justify">Info Ujian Tertulis</p>
-		<p style="text-align:justify">- Tanggal Ujian Tertulis : 15 Juni 2024</p>
+		<p style="text-align:justify">- Tanggal Ujian Tertulis : 24 Februari 2024</p>
 		<p style="text-align:justify">- Datanglah Tepat waktu tidak ada penambahan bagi yang datang terlambar</p>
 		<p style="text-align:justify">- Berpakaian yang rapi dan sopan, tidak memakai sandal, jeans, ataupun kaos</p>
 		<p style="text-align:justify">- Pastikan tidak membawa hp ataupun alat telekomunikasi elektronik lainnya</p>

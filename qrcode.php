@@ -17,7 +17,7 @@ $filename = $PNG_TEMP_DIR . 'test.png';
 
 //processing form input
 //remember to sanitize user input in real-life solution !!!
-$errorCorrectionLevel = 'L';
+$errorCorrectionLevel = 'H';
 if (isset($_REQUEST['level']) && in_array($_REQUEST['level'], array('L', 'M', 'Q', 'H')))
     $errorCorrectionLevel = $_REQUEST['level'];
 
