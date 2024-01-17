@@ -8,7 +8,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
             <li><a href="#">Master Data</a></li>
-            <li class="active">Kelas</li>
+            <li class="active">Ruangan</li>
         </ol>
     </section>
 
@@ -18,9 +18,9 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Kelas</h3>
+                        <h3 class="box-title">Ruangan</h3>
                         <div class="pull-right">
-                            <button type="button" class="btn btn-success btn-xs" onclick="popModal(1,'add-kelas');"><i class="fa fa-plus"></i> Kelas</button>
+                            <button type="button" class="btn btn-success btn-xs" onclick="popModal(1,'add-kelas');"><i class="fa fa-plus"></i> Ruangan</button>
                         </div>
                     </div>
                     <div class="box-body">
@@ -29,7 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th class="center-align">No.</th>
-                                        <th>Nama Kelas / Ruangan</th>
+                                        <th>Nama Ruangan</th>
                                         <th>Kuota</th>
                                         <th class="center-align">Aksi</th>
                                     </tr>

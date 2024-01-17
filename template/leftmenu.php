@@ -67,8 +67,8 @@ if ($level == 'User') {
             </a>
             <ul class="treeview-menu">
                 <li><a href="./?page=md-jurusan"><i class="fa fa-circle-o"></i> Jurusan</a></li>
-                <!-- <li><a href="./?page=md-kelas"><i class="fa fa-circle-o"></i> Kelas</a></li>
-                <li><a href="./?page=md-jadwal-tes"><i class="fa fa-circle-o"></i> Jadwal Tes</a></li> -->
+                <li><a href="./?page=md-kelas"><i class="fa fa-circle-o"></i> Ruangan</a></li>
+                <li><a href="./?page=md-jadwal-tes"><i class="fa fa-circle-o"></i> Jadwal Tes</a></li>
                 <li><a href="./?page=md-gelombang-reg"><i class="fa fa-circle-o"></i> Gelombang Pendaftaran</a></li>
             </ul>
         </li>

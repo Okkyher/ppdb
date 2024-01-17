@@ -69,6 +69,11 @@ if (isset($_SESSION['login']['id'])) {
     $stmt_prest_ver->execute();
     $prest_ver_db = $stmt_prest_ver->fetchAll();
 
+    // Fetch data from the database jadwal_tes
+    $stmt_jadwaltes = $pdo->prepare("SELECT `jadwal_tes`.`id`, `jadwal_tes`.`sesi`, `jadwal_tes`.`tanggal`, `jadwal_tes`.`jam`, `jadwal_tes`.`id_ruangan`, `kelas`.`nama`, `kelas`.`kuota` FROM `jadwal_tes` JOIN `kelas` ON `jadwal_tes`.`id_ruangan`=`kelas`.`id` ORDER BY `id` ASC");
+    $stmt_jadwaltes->execute();
+    $jadwaltes_db = $stmt_jadwaltes->fetchAll();
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Process image upload
         if (isset($_POST['inpstep4']) && isset($_FILES['image']) && isset($_POST['croppedImage'])) {

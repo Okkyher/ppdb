@@ -57,7 +57,7 @@ echo "
 					   
                        </td>
                        
-                       <td align=center width=80%><b>Registrasi PPDB Online</b><br><small><!--YAYASAN PEMBINA LEMBAGA PENDIDIKAN<br>DASAR DAN MENENGAH PERSATUAN GURU REPUBLIK INDONESIA KABUPATEN KARANGANYAR--></small><br>MADARASAH ALIYAH NEGRI (MAN) 01<br>Alamat: Jl. Ngalian No. 04 Karanganyar Telp:(0273) 322235 Kode Pos.57752<br>E-mail: mansatukra@gmail.com
+                       <td align=center width=80%><b>Registrasi PPDB Online</b><br><small><!--YAYASAN PEMBINA LEMBAGA PENDIDIKAN<br>DASAR DAN MENENGAH PERSATUAN GURU REPUBLIK INDONESIA KABUPATEN KARANGANYAR--></small><br>MADARASAH ALIYAH NEGRI (MAN) 01 KARANGANYAR<br>Alamat: Jl. Ngalian No. 04 Karanganyar Telp:(0273) 322235 Kode Pos.57752<br>E-mail: mansatukra@gmail.com
 
                        </td>
                        <td width=15% valign=middle><img src='dist/img/logo-sekolah.png'width='80' />
@@ -117,13 +117,10 @@ if (date('m') < 12) {
 	    <td width=75%></td>
 		<td width=25% align=center><br />Karanganyar, " . indodate(date("Y-m-d")) . " <br/>Kepala Sekolah<br />
 		<img src='dist/img/kepsekttd.png'width='90'/><br/>Drs. Nuri Hartono<br /></td>
-			
 	   </tr>
        <tr>
            <td colspan=2>&nbsp;</td>
        </tr>"; ?>
-
-
 <?php echo "
        <tr>
            <td align=center style='background-color: #CCCCCC;' colspan=2>PPDB Online MAN 01 Karanganyar.</td>
