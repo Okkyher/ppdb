@@ -49,8 +49,8 @@
                                             <td><?php echo $jwl['kuota']; ?></td>
                                             <td class="center-align">
                                                 <div class="btn-group btn-group-xs act" role="group" aria-label="...">
-                                                    <button type="button" class="btn btn-primary btn-xs" onclick="popModal(<?php echo $jwl['id']; ?>,'edit-kelas');"><i class="glyphicon glyphicon-edit"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-xs" onclick="DelData(<?php echo $jwl['id']; ?>, 'id','kelas');"><i class="glyphicon glyphicon-trash"></i></button>
+                                                    <button type="button" class="btn btn-primary btn-xs" onclick="popModal(<?php echo $jwl['id']; ?>,'edit-jadwal');"><i class="glyphicon glyphicon-edit"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-xs" onclick="DelData(<?php echo $jwl['id']; ?>, 'id','jadwal_tes');"><i class="glyphicon glyphicon-trash"></i></button>
 
                                                 </div>
                                             </td>

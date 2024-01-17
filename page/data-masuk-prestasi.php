@@ -45,7 +45,7 @@
                                             <td><?php echo $prest['asal_sekolah']; ?></td>
                                             <td><?php echo $prest['nisn']; ?></td>
                                             <td class="center-align">
-                                                <label class="label label-warning" onclick="verifikasi(<?php echo $prest['id']; ?>);"><?php echo $prest['valid']; ?></label>
+                                                <label class="label label-warning" onclick="verifikasi(<?php echo $prest['id']; ?>,1);"><?php echo $prest['valid']; ?></label>
                                             </td>
                                             <td class="center-align">
                                                 <div class="btn-group btn-group-xs act" role="group" aria-label="...">

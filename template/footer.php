@@ -358,7 +358,7 @@
         }
     }
 
-    function verifikasi(id) {
+    function verifikasi(id, via) {
         var diVerifikasi = window.confirm("Apakah Anda Yakin Ingin Memverifikasi Pendaftar Berikut?");
         if (diVerifikasi) {
             // memulai ajax
@@ -367,6 +367,32 @@
                 method: 'POST',
                 data: {
                     aksi: 'verifikasi-data',
+                    id: id,
+                    via: via
+                },
+                success: function(result) {
+                    if (result.success == true) {
+                        alert(result.message);
+                        location.reload();
+                    } else {
+                        alert(result.message);
+                    }
+                }
+            });
+        } else {
+
+        }
+    }
+
+    function penerimaan(id) {
+        var diTerima = window.confirm("Apakah Anda Yakin Ingin Menerima Calon Siswa Berikut?");
+        if (diTerima) {
+            // memulai ajax
+            $.ajax({
+                url: 'include/action.php',
+                method: 'POST',
+                data: {
+                    aksi: 'penerimaan-data',
                     id: id
                 },
                 success: function(result) {

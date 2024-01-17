@@ -50,7 +50,11 @@
                                                 <label class="label label-success"><?php echo $reg['valid']; ?></label>
                                             </td>
                                             <td class="center-align">
-                                                <label class="label label-primary">Belum Diterima</label>
+                                                <?php if ($prest['lulus'] == 'Tidak Lulus') { ?>
+                                                    <label class="label label-warning" onclick="penerimaan(<?php echo $prest['id']; ?>);">Belum Diterima</label>
+                                                <?php } else if ($prest['lulus'] == 'Sudah Diterima') { ?>
+                                                    <label class="label label-primary">Diterima</label>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                     <?php $no++;
